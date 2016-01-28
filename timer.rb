@@ -17,6 +17,6 @@ class Timer
   end
 
   def current_time
-    Time.now — latest_start
+    Time.now - latest_start
   end
 end
