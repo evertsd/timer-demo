@@ -1,7 +1,7 @@
 var globalTimerVar;
 
 var Timer = function() {
-	this.$playBtn = $('[data-play-btn]');
+  this.$playBtn = $('[data-play-btn]');
   this.$pauseBtn = $('[data-pause-btn]');
   this.$stopBtn = $('[data-stop-btn]');
   this.$timeDisplay = $('[data-time-display]');
@@ -12,23 +12,23 @@ var Timer = function() {
   this.interval;
 
 
-	this.$playBtn.on('click', this.start.bind(this));
-	this.$pauseBtn.on('click', this.stop.bind(this));
-	this.$stopBtn.on('click', function() {
-	  this.stop();
-	  this.time = 0;
-	  this.serverTime = 0;
-	}.bind(this));
+  this.$playBtn.on('click', this.start.bind(this));
+  this.$pauseBtn.on('click', this.stop.bind(this));
+  this.$stopBtn.on('click', function() {
+    this.stop();
+    this.time = 0;
+    this.serverTime = 0;
+  }.bind(this));
 
-	if (!!this.$timeDisplay.attr('[data-is-running]')) {
-	  this.start();
-	}
+  if (!!this.$timeDisplay.attr('[data-is-running]')) {
+    this.start();
+  }
 
-	return this;
+  return this;
 };
 
 Timer.prototype.start = function() {
-	this.refreshedAt = new Date();
+  this.refreshedAt = new Date();
   this.interval = setInterval(function() {
     this.time = this.currentTime();
     this.updateDisplay();
@@ -36,19 +36,19 @@ Timer.prototype.start = function() {
 }
 
 Timer.prototype.stop = function() {
-	this.serverTime = this.currentTime();
+  this.serverTime = this.currentTime();
   clearInterval(this.interval);
   this.updateDisplay();
 }
 
 Timer.prototype.currentTime = function() {
-	return parseInt(this.serverTime + ((new Date() - this.refreshedAt) / 1000));
+  return parseInt(this.serverTime + ((new Date() - this.refreshedAt) / 1000));
 }
 
 Timer.prototype.updateDisplay = function() {
-	this.$timeDisplay.html(this.time);
+  this.$timeDisplay.html(this.time);
 }
 
 $(document).on('ready', function() {
-	globalTimerVar = new Timer();
+  globalTimerVar = new Timer();
 });
