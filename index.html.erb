@@ -8,12 +8,12 @@
     <script src="timer.js" type="text/javascript"></script> 
   </head>
   <body>
-    <p data-time-display
+    <span data-time-display
        data-server-time="<%= @timer.current_time %>"
-       data-is-running="<%= @timer.status == Timer::ACTIVE %>"></p>
+       data-is-running="<%= @timer.status == Timer::ACTIVE %>"></span>
 
-    <a href="javascript::void(0);" data-play-btn>Play</a>
-    <a href="javascript::void(0);" data-pause-btn>Pause</a>
-    <a href="javascript::void(0);" data-stop-btn>Stop</a>
+    <a href="javascript:void(0);" data-play-btn style="margin: 0 5px; padding: 5px 10px; border: 1px solid gray; display: block; color: #3fc380;">Play</a>
+    <a href="javascript:void(0);" data-pause-btn style="margin: 0 5px; padding: 5px 10px; border: 1px solid gray; display: block; color: #3fc380;">Pause</a>
+    <a href="javascript:void(0);" data-stop-btn style="margin: 0 5px; padding: 5px 10px; border: 1px solid gray; display: block; color: #3fc380;">Stop</a>
   </body>
 </html>
